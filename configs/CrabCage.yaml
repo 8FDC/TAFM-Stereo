@@ -1,0 +1,51 @@
+dataset: CrabCage
+img_size: 518
+total_steps: 8000
+warm_up_step: 0
+bs: 4
+lr: 0.00001
+num_workers: 4
+pretrained_from: checkpoints
+save_path: F:\\project3\\output
+backup_path: F:\\project3\\output\\backup
+val_interval: 100
+max_depth: 800
+min_depth: 0.001
+max_disp: 550
+min_disp: 0.001
+eval_target_area: true
+max_val_samples: 100
+
+encoder: vits
+gru_iters: 15
+disp_init_strategy: random  # options: random, relative_depth
+relative_depth_disp_scale: 4.0  # used when disp_init_strategy is relative_depth
+relative_depth_disp_shift: 23.0 # init_disp = rel_depth * scale + shift
+disp_init_var: 4.0
+corr_implementation: ""
+corr_levels: 4
+corr_radius: 4
+n_downsample: 3
+n_gru_layers: 3
+context_norm: batch
+hidden_dims: [128, 128, 128]
+saturation_range: [0.0, 1.4]
+spatial_scale: [-0.2, 0.4]
+noyjitter: true
+num_gpu: 1
+
+target_loss_enhance: true
+use_roi_attn: true
+beat_repetitive_texture: true
+use_grad_modulator: true
+use_ordinal_depth_regularization: true
+use_cost_volume_ordinal_prior: true
+ordinal_loss_weight: 0.05
+ordinal_patch_radius: 3
+ordinal_pair_stride: 1
+ordinal_rel_depth_delta: 0.02
+ordinal_disp_margin: 0.1
+cv_ordinal_temperature: 0.2
+cv_ordinal_order_sharpness: 10.0
+
+restore_checkpoint: null
